@@ -2,11 +2,14 @@ import TodoForm from './component/TodoForm';
 import Todo from './component/Todo';
 import { useState } from 'react';
 import './todos.css';
+import { TodoItem } from './interfaces';
 
-function Todos() {
-  const [todos, setTodos] = useState([]);
+const Todos: React.FC = () => {
+  // useState 타입지정
+  const [todos, setTodos] = useState<TodoItem[]>([]);
 
-  const addTodo = todo => {
+  // Todo 추가 합수
+  const addTodo = (todo: TodoItem): void => {
     if (!todo.text || /^\s*$/.test(todo.text)) {
       return;
     }
@@ -16,24 +19,25 @@ function Todos() {
     setTodos(newTodos);
   };
 
-
-  const removeTodo = id => {
+  // Todo 삭제 함수
+  const removeTodo = (id: number): void => {
     const removeArr = [...todos].filter(todo => todo.id !== id);
 
     setTodos(removeArr);
   };
 
-  const completeTodo = id => {
+  // Todo 완료 처리 함수
+  const completeTodo = (id: number): void => {
     const completedTodo = todos.map(todo => {
       if (todo.id === id) {
-        todo.isComplete = !todo.isComplete
+        todo.isComplete = !todo.isComplete;
       }
 
       return todo;
-    })
+    });
 
     setTodos(completedTodo);
-  }
+  };
 
   return (
     <div>
@@ -49,6 +53,6 @@ function Todos() {
       </div>
     </div>
   );
-}
+};
 
 export default Todos;
