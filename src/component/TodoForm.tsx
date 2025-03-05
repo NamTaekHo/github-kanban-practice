@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, ChangeEvent } from 'react';
 import { AddTodo } from '../interfaces';
 
+//merge practice
 const TodoForm = ({ onSubmit }: AddTodo) => {
   const [input, setInput] = useState<string>('');
   const [number, setNumber] = useState<number>(1);
