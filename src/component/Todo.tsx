@@ -1,5 +1,6 @@
 import { TodoProps } from '../interfaces';
 
+// Merge 용 주석임
 const Todo = ({ todos, completeTodo, removeTodo }: TodoProps) => {
   return (
     <div className="wrapper-todo">
