@@ -14,21 +14,21 @@ const Todos: React.FC = () => {
       return;
     }
 
-    const newTodos = [todo, ...todos];
+    const newTodos: TodoItem[] = [todo, ...todos];
 
     setTodos(newTodos);
   };
 
   // Todo 삭제 함수
   const removeTodo = (id: number): void => {
-    const removeArr = [...todos].filter(todo => todo.id !== id);
+    const removeArr: TodoItem[] = [...todos].filter(todo => todo.id !== id);
 
     setTodos(removeArr);
   };
 
   // Todo 완료 처리 함수
   const completeTodo = (id: number): void => {
-    const completedTodo = todos.map(todo => {
+    const completedTodo: TodoItem[] = todos.map(todo => {
       if (todo.id === id) {
         todo.isComplete = !todo.isComplete;
       }

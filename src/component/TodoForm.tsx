@@ -1,17 +1,17 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, ChangeEvent } from 'react';
 import { AddTodo } from '../interfaces';
 
 const TodoForm = ({ onSubmit }: AddTodo) => {
   const [input, setInput] = useState<string>('');
   const [number, setNumber] = useState<number>(1);
-  const inputRef = useRef<HTMLInputElement>(null);
+  const inputRef = useRef<HTMLInputElement | null>(null);
 
   // 최초 1회 렌더링
   useEffect(() => {
     inputRef.current.focus();
   }, []);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInput(e.target.value);
   };
 
